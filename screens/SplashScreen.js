@@ -43,15 +43,15 @@ const SplashScreen = ({navigation}) => {
               color: colors.text,
             },
           ]}>
-          Stay connected with everyone!
+          Ao topo, um degrau de cada vez
         </Text>
-        <Text style={styles.text}>Sign in with account</Text>
+        <Text style={styles.text}>autenticar-se com a sua conta</Text>
         <View style={styles.button}>
           <TouchableOpacity onPress={() => navigation.navigate('SignInScreen')}>
             <LinearGradient
               colors={['#0d7dc8', '#37aefd']}
               style={styles.signIn}>
-              <Text style={styles.textSign}>Get Started</Text>
+              <Text style={styles.textSign}>Começar</Text>
               <MaterialIcons name="navigate-next" color="#fff" size={20} />
             </LinearGradient>
           </TouchableOpacity>
