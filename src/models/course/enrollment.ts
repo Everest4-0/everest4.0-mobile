@@ -1,5 +1,5 @@
 import { Activity } from './activity';
-import { User } from './../main/user';
+import { User } from '../main/User';
 import { Course } from './course';
 
 export class Enrollment {

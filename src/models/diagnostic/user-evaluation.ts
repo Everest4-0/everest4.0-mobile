@@ -1,6 +1,6 @@
 import { EvaluationRequest } from './evaluation-request';
 import { Evaluation } from './evaluation';
-import { User } from '../main/user';
+import { User } from '../main/User';
 export class UserEvaluation {
     id: string;
     points = 0;

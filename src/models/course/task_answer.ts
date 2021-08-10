@@ -1,6 +1,6 @@
 import { ActivityTask } from './activity_task';
 import { Enrollment } from './enrollment';
-import { User } from './../main/user';
+import { User } from '../main/User';
 
 export class TaskAnswer {
     id: string;

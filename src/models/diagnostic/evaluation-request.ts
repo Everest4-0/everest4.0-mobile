@@ -1,5 +1,5 @@
 import { UserEvaluation } from './user-evaluation';
-import { User } from '../main/user';
+import { User } from '../main/User';
 export class EvaluationRequest {
     id: string;
     code: string;
