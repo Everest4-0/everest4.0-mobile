@@ -7,6 +7,7 @@ import User from '../../models/main/User';
 export class AuthService extends UserService {
 
     public user: User = new User();
+    
     private store: StorageServices=new StorageServices()
     constructor() {
         super();

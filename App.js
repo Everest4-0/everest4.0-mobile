@@ -6,14 +6,14 @@
  * @flow
  */
 
-import React, { useEffect } from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import React, {useEffect} from 'react';
+import {View, ActivityIndicator} from 'react-native';
 import {
   NavigationContainer,
   DefaultTheme as NavigationDefaultTheme,
   DarkTheme as NavigationDarkTheme,
 } from '@react-navigation/native';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 
 import {
   Provider as PaperProvider,
@@ -21,14 +21,15 @@ import {
   DarkTheme as PaperDarkTheme,
 } from 'react-native-paper';
 
-import { DrawerContent } from './src/screens/DrawerContent';
+import {DrawerContent} from './src/screens/DrawerContent';
 
 import MainTabScreen from './src/screens/MainTabScreen';
+import Tabs from './src/screens/tabs';
 import SupportScreen from './screens/SupportScreen';
 import SettingsScreen from './src/screens/User/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';
 
-import { AuthContext } from './src/components/context';
+import {AuthContext} from './src/components/context';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import User from './src/models/main/User';
@@ -123,7 +124,7 @@ const App = () => {
           console.log(e);
         }
         // console.log('user token: ', userToken);
-        dispatch({ type: 'LOGIN', id: userName, token: userToken });
+        dispatch({type: 'LOGIN', id: userName, token: userToken});
       },
       auth: async () => {
         try {
@@ -142,7 +143,7 @@ const App = () => {
         } catch (e) {
           console.log(e);
         }
-        dispatch({ type: 'LOGOUT' });
+        dispatch({type: 'LOGOUT'});
       },
       signUp: () => {
         // setUserToken('fgkj');
@@ -166,13 +167,13 @@ const App = () => {
         console.log(e);
       }
       // console.log('user token: ', userToken);
-      dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
+      dispatch({type: 'RETRIEVE_TOKEN', token: userToken});
     }, 1000);
   }, []);
 
   if (loginState.isLoading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <ActivityIndicator size="large" />
       </View>
     );
@@ -184,7 +185,7 @@ const App = () => {
           {loginState.userToken !== null ? (
             <Drawer.Navigator
               drawerContent={props => <DrawerContent {...props} />}>
-              <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
+              <Drawer.Screen name="HomeDrawer" component={Tabs} />
               <Drawer.Screen name="SupportScreen" component={SupportScreen} />
               <Drawer.Screen name="SettingsScreen" component={SettingsScreen} />
               <Drawer.Screen name="BookmarkScreen" component={BookmarkScreen} />
