@@ -14,6 +14,10 @@ export const coach = require('../../assets/icons/coach.png');
 export const coach_o = require('../../assets/icons/coach-o.png');
 
 export const back = require('../../assets/icons/back.png');
+export const menu = require('../../assets/icons/menu.png');
+
+
+
 export const car = require('../../assets/icons/car.png');
 export const cutlery = require('../../assets/icons/cutlery.png');
 export const donut = require('../../assets/icons/donut.png');
@@ -47,6 +51,9 @@ export default {
   calendar,
   marker,
   back,
+  menu,
+
+
   car,
   cutlery,
   donut,

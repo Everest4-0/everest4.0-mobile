@@ -12,7 +12,7 @@ import { HomeScreen } from "./Home"
 
 import { COLORS, icons } from "../constants"
 import DiagnosticScreen from './Diagnostic/DiagnosticScreen';
-import { ElearningScreen } from './Elerning/Index';
+import { ElearningScreen } from './Elearning/Index';
 import CoachingScreen from './Coaching/CoachingScreen';
 
 const Tab = createBottomTabNavigator();
