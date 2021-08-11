@@ -3,8 +3,9 @@ import Axios from 'axios'
 
 const serverAddress = environment.serverAddress;
 
+export { serverAddress };
 class AppService<T> {
-  static serverAddress = serverAddress;
+  public static serverAddress = serverAddress;
   protected headers;
   protected url;
   protected axios = Axios;

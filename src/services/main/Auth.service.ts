@@ -1,21 +1,21 @@
 import { UserService } from './User.service';
 import { StorageServices } from './../default/Storage.service';
 import { catchError } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+
 import User from '../../models/main/User';
 
 export class AuthService extends UserService {
 
     public user: User = new User();
-    private store: StorageServices
+    private store: StorageServices=new StorageServices()
     constructor() {
         super();
-        /*const u = this.store.get<User>('current_user')
+        const u = this.store.get<User>('userToken')
         if (u === undefined) {
             this.user = undefined
         } else {
             this.user = Object.assign(new User(), u);
-        }*/
+        }
     }
 
     authorizationKey = () => this.user.apikey;

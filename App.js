@@ -6,14 +6,14 @@
  * @flow
  */
 
-import React, {useEffect} from 'react';
-import {View, ActivityIndicator} from 'react-native';
+import React, { useEffect } from 'react';
+import { View, ActivityIndicator } from 'react-native';
 import {
   NavigationContainer,
   DefaultTheme as NavigationDefaultTheme,
   DarkTheme as NavigationDarkTheme,
 } from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import {
   Provider as PaperProvider,
@@ -21,19 +21,18 @@ import {
   DarkTheme as PaperDarkTheme,
 } from 'react-native-paper';
 
-import {DrawerContent} from './screens/DrawerContent';
+import { DrawerContent } from './src/screens/DrawerContent';
 
-import MainTabScreen from './screens/MainTabScreen';
+import MainTabScreen from './src/screens/MainTabScreen';
 import SupportScreen from './screens/SupportScreen';
-import SettingsScreen from './screens/SettingsScreen';
+import SettingsScreen from './src/screens/User/SettingsScreen';
 import BookmarkScreen from './screens/BookmarkScreen';
 
-import {AuthContext} from './components/context';
-
-import RootStackScreen from './screens/RootStackScreen';
+import { AuthContext } from './src/components/context';
 
 import AsyncStorage from '@react-native-community/async-storage';
 import User from './src/models/main/User';
+import RootStackScreen from './src/screens/RootStackScreen';
 
 const Drawer = createDrawerNavigator();
 
@@ -124,7 +123,16 @@ const App = () => {
           console.log(e);
         }
         // console.log('user token: ', userToken);
-        dispatch({type: 'LOGIN', id: userName, token: userToken});
+        dispatch({ type: 'LOGIN', id: userName, token: userToken });
+      },
+      auth: async () => {
+        try {
+          let u = await AsyncStorage.getItem('userToken');
+          return {user: JSON.parse(u)};
+        } catch (e) {
+          console.log(e);
+          return {error: e};
+        }
       },
       signOut: async () => {
         // setUserToken(null);
@@ -134,7 +142,7 @@ const App = () => {
         } catch (e) {
           console.log(e);
         }
-        dispatch({type: 'LOGOUT'});
+        dispatch({ type: 'LOGOUT' });
       },
       signUp: () => {
         // setUserToken('fgkj');
@@ -158,13 +166,13 @@ const App = () => {
         console.log(e);
       }
       // console.log('user token: ', userToken);
-      dispatch({type: 'RETRIEVE_TOKEN', token: userToken});
+      dispatch({ type: 'RETRIEVE_TOKEN', token: userToken });
     }, 1000);
   }, []);
 
   if (loginState.isLoading) {
     return (
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
         <ActivityIndicator size="large" />
       </View>
     );
