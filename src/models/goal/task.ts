@@ -21,6 +21,7 @@ export class Task {
     createdAt: Date;
     updatedAt: Date;
 
+    categories: string[];
     constructor() {
     }
 }

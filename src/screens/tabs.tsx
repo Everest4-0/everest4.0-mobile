@@ -14,6 +14,7 @@ import { COLORS, icons } from "../constants"
 import DiagnosticScreen from './Diagnostic/DiagnosticScreen';
 import { ElearningScreen } from './Elearning/Index';
 import CoachingScreen from './Coaching/CoachingScreen';
+import GoalScreen from './Goal/GoalScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -173,7 +174,7 @@ const Tabs = () => {
 
             <Tab.Screen
                 name="Like"
-                component={HomeScreen}
+                component={GoalScreen}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <Image

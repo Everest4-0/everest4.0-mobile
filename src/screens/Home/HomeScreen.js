@@ -3,7 +3,6 @@ import React, {useState} from 'react';
 import {
   View,
   Text,
-  Button,
   Image,
   TouchableOpacity,
   StyleSheet,
@@ -18,6 +17,10 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 
 import {serverAddress} from '../../services/app.service';
 import {ScrollView} from 'react-native-gesture-handler';
+import Charts from './components/Charts';
+
+import TaskComponent from './components/Task/TaskComponent';
+import NewsComponent from './components/News/NewsComponent';
 const HomeScreen = ({navigation}) => {
   const [user, setUser] = useState({});
 
@@ -94,11 +97,9 @@ const HomeScreen = ({navigation}) => {
         style={{
           flex: 1,
         }}>
-        <View style={{height: 400, backgroundColor: COLORS.primary}} />
-
-        <View style={{height: 400, backgroundColor: COLORS.secondary}} />
-
-        <View style={{height: 400, backgroundColor: COLORS.white}} />
+        <Charts />
+        <TaskComponent />
+        <NewsComponent />
       </ScrollView>
     </SafeAreaView>
   );
@@ -109,7 +110,6 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent: 'center',
     backgroundColor: COLORS.white,
   },
 });

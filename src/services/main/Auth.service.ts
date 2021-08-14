@@ -6,17 +6,12 @@ import User from '../../models/main/User';
 
 export class AuthService extends UserService {
 
-    public user: User = new User();
-    
-    private store: StorageServices=new StorageServices()
+    public static me = async () => await StorageServices.get<User>('userToken');
+
+    private store: StorageServices = new StorageServices()
     constructor() {
         super();
-        const u = this.store.get<User>('userToken')
-        if (u === undefined) {
-            this.user = undefined
-        } else {
-            this.user = Object.assign(new User(), u);
-        }
+       
     }
 
     authorizationKey = () => this.user.apikey;
@@ -28,7 +23,7 @@ export class AuthService extends UserService {
         o.provider = 'LOCAL';
         const service = this.axios.post(this.url + '/authenticate', o);
         service.then((data) => {
-            const u=data.data
+            const u = data.data
             switch (parseInt(u.code)) {
                 case 401:
                     u.message = 'Endereço de e-mail ou palavra-passe esta incorretas.'

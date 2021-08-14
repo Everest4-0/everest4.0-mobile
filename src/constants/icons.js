@@ -8,7 +8,12 @@ export const marker = require('../../assets/icons/marker.png');
 export const marker_o = require('../../assets/icons/marker-o.png');
 
 export const calendar = require('../../assets/icons/calendar.png');
+export const calendar_i = require('../../assets/icons/calendar-i.png');
+export const calendar_e = require('../../assets/icons/calendar-e.png');
 export const calendar_o = require('../../assets/icons/calendar-o.png');
+export const calendar_u = require('../../assets/icons/calendar-u.png');
+
+
 
 export const coach = require('../../assets/icons/coach.png');
 export const coach_o = require('../../assets/icons/coach-o.png');
@@ -49,6 +54,11 @@ export default {
   book,
   coach,
   calendar,
+  calendar_e,
+  calendar_i,
+  calendar_o,
+  calendar_u,
+  
   marker,
   back,
   menu,

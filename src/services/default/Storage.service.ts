@@ -2,7 +2,7 @@ import { Stored } from './../../models/stored';
 import AsyncStorage from '@react-native-community/async-storage';
 
 // key that is used to access the data in local storage
-const STORAGE_KEY = 'local_everest_key';
+const STORAGE_KEY = 'userToken';
 
 export class StorageServices {
     private storage = AsyncStorage;
@@ -26,11 +26,12 @@ export class StorageServices {
 
         return true;
     }
-    public async get<T>(key: string): Promise<Stored<T>> {
+    public static async get<T>(key: string): Promise<Stored<T>> {
         // get array of tasks from local storage
-        const storage = await this.storage.getItem(STORAGE_KEY) || [];
+        const storage = await AsyncStorage.getItem(STORAGE_KEY) || [];
+        
         // push new task to array
-        let data=JSON.parse(storage+'');
+        return JSON.parse(storage+'');
 
         const final = data.filter(k => k.key == key)[0];
 
